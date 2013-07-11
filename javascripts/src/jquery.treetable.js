@@ -32,7 +32,11 @@
       this.indenter = $(this.settings.indenterTemplate);
       this.children = [];
       this.initialized = false;
-      this.treeCell.prepend(this.indenter);
+      if(this.settings.columnInnerElType){
+    	  this.treeCell.find(this.settings.columnInnerElType).prepend(this.indenter);
+      }else{
+    	  this.treeCell.prepend(this.indenter);
+      }
     }
 
     Node.prototype.addChild = function(child) {
